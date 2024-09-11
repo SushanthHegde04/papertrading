@@ -31,7 +31,7 @@ document.getElementById('signupForm').addEventListener('submit', function (e) {
            sessionStorage.setItem("UserId",data.userId);
             alert('Sign up successful');
             //window.location.href="UserDetails.html"
-              window.location.href = 'userDetails.html';
+              window.location.href = '/userDetails.html';
             document.getElementById('signupBox').style.display = 'none';
         }).catch(error => {
             console.error('Error signing up:', error);
