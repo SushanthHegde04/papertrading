@@ -31,7 +31,8 @@ document.getElementById('signupForm').addEventListener('submit', function (e) {
            sessionStorage.setItem("UserId",data.userId);
             alert('Sign up successful');
             //window.location.href="UserDetails.html"
-              window.location.href = '/userDetails.html';
+             window.location.href = 'https://papertrading-production.up.railway.app/userDetails.html';
+
             document.getElementById('signupBox').style.display = 'none';
         }).catch(error => {
             console.error('Error signing up:', error);
@@ -73,7 +74,8 @@ document.getElementById('loginForm').addEventListener('submit', function (e) {
 
         // Hide the login box and redirect to userDetails page
         document.getElementById('loginBox').style.display = 'none';
-        window.location.href = '/userDetails.html';
+       window.location.href = 'https://papertrading-production.up.railway.app/userDetails.html';
+
     })
     .catch(error => {
         // Log and show error if login failed
