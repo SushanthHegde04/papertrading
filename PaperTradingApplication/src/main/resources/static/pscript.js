@@ -27,18 +27,18 @@ document.getElementById('signupForm').addEventListener('submit', function (e) {
         .then(data => {
             // Log the response from the server
             console.log('Signup Response:', data);
-            console.log("data",data.userId);
-           sessionStorage.setItem("UserId",data.userId);
+            console.log("data", data.userId);
+            sessionStorage.setItem("UserId", data.userId);
             alert('Sign up successful');
-            //window.location.href="UserDetails.html"
-             window.location.href = 'https://papertrading-production.up.railway.app/userDetails.html';
-
+            // Redirect to userDetails.html
+            window.location.href = 'https://papertrading-production.up.railway.app/userDetails.html';
             document.getElementById('signupBox').style.display = 'none';
         }).catch(error => {
             console.error('Error signing up:', error);
             alert('Error signing up');
         });
 });
+
 document.getElementById('loginForm').addEventListener('submit', function (e) {
     e.preventDefault();
     const formData = new FormData(this);
@@ -54,8 +54,7 @@ document.getElementById('loginForm').addEventListener('submit', function (e) {
             'Content-Type': 'application/json'
         },
         body: JSON.stringify(jsonData)
-    })
-    .then(response => {
+    }).then(response => {
         // Check if response is OK
         if (!response.ok) {
             return response.json().then(data => {
@@ -63,21 +62,15 @@ document.getElementById('loginForm').addEventListener('submit', function (e) {
             });
         }
         return response.json(); // Parse JSON response
-    })
-    .then(data => {
+    }).then(data => {
         // Log the response from the server
         console.log('Login Response:', data);
-       //lert(data.message); // Show success message
-
         // Store userId in sessionStorage
         sessionStorage.setItem("UserId", data.userId);
-
         // Hide the login box and redirect to userDetails page
         document.getElementById('loginBox').style.display = 'none';
-       window.location.href = 'https://papertrading-production.up.railway.app/userDetails.html';
-
-    })
-    .catch(error => {
+        window.location.href = 'https://papertrading-production.up.railway.app/userDetails.html';
+    }).catch(error => {
         // Log and show error if login failed
         console.error('Error logging in:', error);
         alert(error.message || 'Error logging in');
